@@ -66,9 +66,9 @@
     "@commitlint/cli": "^20.5.0",
     "@commitlint/config-conventional": "^20.5.0",
     "@commitlint/types": "^20.5.0",
-    "@impactor/eslint-config": "^4.0.0",
-    "@impactor/nodejs": "^5.0.0",
-    "@impactor/nx-manager": "^4.0.0",
+    "@impactor/eslint-config": "^4.0.2",
+    "@impactor/nodejs": "^5.0.3",
+    "@impactor/nx-manager": "^4.0.2",
     "@jest/globals": "30.3.0",
     "@jest/types": "^30.3.0",
     "@nx/angular": "22.6.5",
@@ -91,7 +91,7 @@
     "monorepo-root": "^3.3.1",
     "npm-check-updates": "^19.5.0",
     "nx": "22.6.5",
-    "prettier": "^3.8.2",
+    "prettier": "^3.8.3",
     "shx": "^0.4.0",
     "ts-jest": "29.4.9",
     "ts-loader": "^9.5.7",
@@ -136,5 +136,6 @@
         }
       }
     }
-  }
+  },
+  "pnpm": {}
 }
