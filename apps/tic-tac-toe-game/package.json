@@ -1,0 +1,10 @@
+{
+  "name": "tic-tac-toe-game",
+  "version": "1.0.0",
+  "description": "Tic Tac Toe game with HTML and JS",
+  "type": "module",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
