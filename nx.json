@@ -1,0 +1,164 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "executor": "@impactor/nx-manager:universal-builder",
+      "dependsOn": ["typecheck", "prebuild", "^build"],
+      "cache": true,
+      "inputs": ["default", "^default"],
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "postBuild": [
+          "default",
+          "{workspaceRoot}/tasks/post-build.ts",
+          "{projectRoot}/tasks/post-build.ts",
+          "script:postbuild"
+        ]
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build", "preserve"],
+      "continuous": true,
+      "options": {
+        "cwd": "{projectRoot}/dist",
+        "command": "NODE_ENV=development pnpm tsx --env-file-if-exists=.env --env-file-if-exists=.env.local main.js"
+      },
+      "configurations": {
+        "production": {
+          "command": "NODE_ENV=production pnpm tsx --env-file-if-exists=.env --env-file-if-exists=.env.local --env-file-if-exists=.env.production --env-file-if-exists=.env.production.local main.js"
+        }
+      }
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "{projectRoot}/dist"
+      }
+    },
+    "test": {
+      "inputs": ["test"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "dependsOn": ["^build", "pretest"],
+      "configurations": {
+        "unit": {
+          "args": [
+            "--testPathIgnorePatterns '(.*-)?e2e/'",
+            "--testPathIgnorePatterns '.*\\.e2e(\\.spec|\\.test)?\\.[mc]?[tj]sx?$'"
+          ]
+        },
+        "e2e": {
+          "args": [
+            "--testMatch '**/{.*-,}e2e/**/*.{spec,test}.{m,c,}{t,j}s{x,}'",
+            "--testMatch  '**/*.e2e{.spec,.test,}.{m,c,}{t,j}s{x,}'"
+          ]
+        }
+      }
+    },
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default"]
+    }
+  },
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/src/**/*",
+      "{projectRoot}/.env{.*,}",
+      "{projectRoot}/{project,package,tsconfig}{.*,}.json",
+      "{projectRoot}/tasks/{pre,post}-build.{t,j}s",
+      "{workspaceRoot}/tasks/{pre,post}-build.{t,j}s",
+      "{workspaceRoot}/tsconfig.base.json",
+      "!{projectRoot}/**/*.{spec,test}{.e2e,}.{t,j}s{x,}",
+      "!{projectRoot}/**/e2e/**/*",
+      {
+        "runtime": "node --version"
+      },
+      {
+        "env": "NODE_ENV"
+      }
+    ],
+    "test": [
+      "default",
+      "{projectRoot}/tsconfig.spec.json",
+      "{projectRoot}/jest.config.{t,j}s",
+      "{workspaceRoot}/jest.config.{t,j}s",
+      "{projectRoot}/**/*.{spec,test}{.e2e,}.{t,j}s{x,}",
+      "{projectRoot}/**/e2e/**/*.{t,j}s{x,}",
+      {
+        "externalDependencies": ["jest"]
+      }
+    ]
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/js/typescript",
+      "options": {
+        "typecheck": {
+          "targetName": "typecheck"
+        },
+        "build": false
+      }
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test",
+        "ciTargetName": "test-ci"
+      }
+    }
+  ],
+  "tasksRunnerOptions": {
+    "default": {
+      "options": {
+        "useDaemonProcess": false
+      }
+    }
+  },
+  "generators": {
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nx/angular:component": {
+      "style": "scss"
+    }
+  },
+  "release": {
+    "groups": {
+      "libs": {
+        "projects": ["libs/*"]
+      },
+      "apps": {
+        "projects": ["apps/*"],
+        "changelog": {
+          "projectChangelogs": {
+            "createRelease": "github"
+          }
+        }
+      }
+    },
+    "projectsRelationship": "independent",
+    "version": {
+      "conventionalCommits": true,
+      "updateDependents": "always",
+      "preVersionCommand": "pnpm nx run-many -t build",
+      "manifestRootsToUpdate": [
+        "{projectRoot}",
+        {
+          "path": "{projectRoot}/dist",
+          "preserveLocalDependencyProtocols": false
+        }
+      ]
+    },
+    "releaseTag": {
+      "pattern": "{projectName}@{version}"
+    },
+    "changelog": {
+      "projectChangelogs": true
+    }
+  },
+  "sync": {
+    "applyChanges": false
+  },
+  "analytics": false
+}

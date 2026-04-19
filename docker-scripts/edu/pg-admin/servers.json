@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Edu PostgreSQL",
+      "Group": "Servers",
+      "Host": "dibo-edu-pgAdmin",
+      "Port": 5432,
+      "Username": "postgres",
+      "Password": "postgres",
+      "MaintenanceDB": "postgres",
+      "SSLMode": "prefer"
+    }
+  }
+}

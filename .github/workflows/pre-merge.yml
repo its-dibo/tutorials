@@ -1,0 +1,41 @@
+# This workflow runs when a new PR is created to merge with the main branch
+# it run testing and check the code quality before merging with the main branch
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      # when a PR is created
+      - opened
+      # Trigger when new commits are pushed to the PR
+      - synchronize
+
+jobs:
+  commitLint:
+    uses: ./.github/workflows/commitlint.yml
+    permissions:
+      contents: read
+      pull-requests: read
+
+  Linting:
+    needs: commitLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: prepare
+        uses: ./.github/actions/prepare
+        # todo: stop on first error
+      - name: Linting
+        run: pnpm lint --fix=false
+
+  testing:
+    needs: Linting
+    uses: ./.github/workflows/testing.yml
+
+  dependabot:
+    needs: testing
+    uses: ./.github/workflows/dependabot-auto-merge.yml
+    permissions:
+      contents: write
+      pull-requests: write

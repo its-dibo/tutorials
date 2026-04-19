@@ -1,0 +1,59 @@
+name: Testing Workflow
+
+on:
+  workflow_call:
+
+jobs:
+  unit-testing:
+    name: Unit Testing
+    runs-on: ubuntu-latest
+    steps:
+      # we must checkout the code first, to use actions from the same repo
+      # https://github.com/orgs/community/discussions/26245#discussioncomment-3250935
+      - uses: actions/checkout@v3
+      - name: prepare
+        uses: ./.github/actions/prepare
+      - name: run unit testing
+        run: pnpm run test:unit
+
+  e2e-testing:
+    name: E2E Testing
+    runs-on: ubuntu-latest
+    # optionally run the job inside a container
+    # in this case we'll need to map the ports
+    # container: node:20-bookworm-slim
+    services:
+      postgres:
+        # a PostgreS with PostGIS extension enabled
+        image: postgis/postgis:latest
+        env:
+          POSTGRES_HOST: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          # when running the job inside the runner machine directly
+          # i.e. without using the "container" prop, we need to map the ports
+        ports:
+          - 5432:5432
+        # TODO: the repo has not been checked out yet, so `${GITHUB_WORKSPACE}` cannot be used
+        # so we need to manually run the postgres scripts after the checkout step
+        # volumes:
+        #   - "${GITHUB_WORKSPACE}/.devcontainer/init.sql:/docker-entrypoint-initdb.d/init.sql"
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v3
+      - name: prepare
+        uses: ./.github/actions/prepare
+      - name: run postgres scripts
+        run: PGPASSWORD=postgres psql -h localhost -U postgres -f $GITHUB_WORKSPACE/docker-scripts/postgres/init.sql
+      - name: run e2e testing
+        env:
+          # databases are now dynamically created for each e2e test
+          # DB_NAME: dibo_testing
+          POSTGRES_HOST: postgres
+          POSTGRES_DB: cms
+        run: npx cross-env NODE_OPTIONS="--max-old-space-size=8192" pnpm run test:e2e

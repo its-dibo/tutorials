@@ -1,0 +1,58 @@
+# This action prepares the repo for the workflow
+# it does these steps:
+#  - checkout the code
+#  - install pnpm globally
+#  - install NodeJs and cache the pnpm store
+#  - install the dependencies
+
+name: prepare
+description: Prepare the repo for the workflow
+inputs:
+  packageManager:
+    # currently only pnpm is supported
+    description: The package manager to use
+    required: false
+    default: "pnpm"
+  nodeVersion:
+    description: The version of NodeJs to use
+    required: false
+    # use undefined to read from package.engines{}
+    default: ""
+runs:
+  # composite actions runs multiple steps as a single step
+  # we must define the property `shell` in each step to run bash commands
+  using: "composite"
+  steps:
+    - name: 💡 info
+      run: echo "start ${{ github.workflow }} of ${{ github.repository }} on ${{ runner.os }} OS, triggered by a ${{ github.event_name }} event on ${{ github.ref }}."
+      shell: bash
+
+    - uses: actions/checkout@v3
+
+    # pnpm store is already cached by actions/setup-node
+    # - name: Cache pnpm store
+    #   uses: actions/cache@v3
+    #   with:
+    #     path: ~/.pnpm-store
+    #     key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+    #     restore-keys: ${{ runner.os }}-pnpm-
+
+    # todo: make it available in other jobs and workflows
+    # uses package.packageManager to specify the version
+    - name: Install pnpm Globally
+      uses: pnpm/action-setup@v4
+      with:
+        # don't run `pnpm install` unless the cache is restored by `actions/setup-node`
+        run_install: false
+
+    - uses: actions/setup-node@v3
+      with:
+        # read from pkg.engines
+        node-version: ${{ inputs.nodeVersion }}
+        node-version-file: "package.json"
+        # pnpm must be installed first before attempting to cache its store
+        cache: ${{ inputs.packageManager || 'pnpm' }}
+
+    - name: install dependencies
+      run: pnpm install
+      shell: bash

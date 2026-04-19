@@ -1,0 +1,103 @@
+# todo: for optimization, build all apps in the first stage, and make a stage for each app to reuse the build artifacts.
+# todo: cache `pnpm install` and `nx build` results
+
+ARG BASE=node:24-alpine
+ARG ROOT=/data/projects/dibo
+ARG APP_NAME
+ARG APP_DIR=$ROOT/apps/$APP_NAME
+# disable the prompt to confirm downloading the corepack binaries
+ARG COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+
+FROM $BASE AS build
+
+ARG ROOT
+ARG APP_NAME
+ARG APP_DIR
+ENV PORT=3000
+ENV NODE_ENV=production
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
+WORKDIR $ROOT
+
+
+# optional: make corepack binaries available offline in the container by `corepack prepare`, 
+# to avoid the need to download them when the container run in an offline environment
+# note: we manually install pnpm here because we haven't copy the root package.json yet, 
+# which contains the field `packageManager`
+# alternatively, copy /package.json first, then `RUN corepack enable && corepack prepare --activate`
+RUN corepack enable pnpm && corepack install -g pnpm@10.30.0 && corepack prepare pnpm@10.30.0 --activate 
+
+# `pnpm fetch` doesn't need package.json files
+# by this setup, we fetch the deps first into the store, so we don't rely on package.json files
+# This prevents re-downloading dependencies eche time a pckage.json file changed 
+# even if the dependencies section still the same
+# https://pnpm.io/cli/fetch
+# https://pnpm.io/docker#example-3-build-on-cicd
+COPY pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm fetch
+
+COPY . .
+
+# use `--prod=false` because pnpm doesn't install devDependencies when NODE_ENV=production
+# `--frozen-lockfile` requires the lock file to be up-to-date and synced with the package.json files
+# todo: ignore the broken lock file
+# error: ERR_PNPM_LOCKFILE_MISSING_DEPENDENCY The lockfile is broken! Resolution step will be performed to fix it.
+# you can use `--offline` scince dependencies already fetched by `pnpm fetch`
+# note that pnpm may need to fetch some packages metadata while installing to resolve `overrides` that are defined in the root package.json
+# as this file is not present when running `pnpm fetch`, some packages
+# eitther copy the root package.json before fetching the dependenciies, this may cause the layer cache to be invalidated with each change on this file,
+# or remove `--offline` or use `--prefer-offline` to allow pnpm to fetch the new packages 
+# or move `overrides` from package.json to pnpm-workspace.yaml
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod=false --prefer-offline --force
+
+# todo: `@nestjs/cli` is installed globally to avoid an error while building libs/nest as it uses `npx @nestjs/cli`
+# `Error: Cannot find module '/data/projects/dibo/libs/nest/node_modules/@nestjs/cli/bin/nest.js'`
+# even if `@nestjs/cli` already listed in libs/nest/package.json 
+# we need to set the pnpm global dir before installing global dependencies
+RUN pnpm add -g @nestjs/cli 
+
+RUN --mount=type=cache,target=$ROOT/.nx pnpm nx build $APP_NAME --configuration=production --verbose
+# using `--legacy` flag, is to avoid adding `force-legacy-deploy=true` to .npmrc
+# which changes the way PNPM links the local dependencies to be hard links instead of symlinks
+# `ERR_PNPM_DEPLOY_NONINJECTED_WORKSPACE  By default, starting from pnpm v10, we only deploy from workspaces that have "inject-workspace-packages=true"`
+# todo: add `--prod`, this causes that some devDependencies that are required to run the app and listed in dist/package.json, such as `tsx` and `kill-port`, to be missing
+# either download it in the nexst stage, or deploy all deps including devDependencies
+# running `pnpm i --dev` causes pnpm to remove prod dependencies
+# also running `pnpm i -D tsx kill-port` causes an error because pnpm tries to resolve local dependencies i.e dependencies that have `workspace:*` semver, which may not be published yet
+RUN pnpm deploy --filter=$APP_NAME --legacy  $APP_DIR/pnpm_deploy
+
+FROM $BASE AS serve
+ARG ROOT
+ARG APP_NAME
+ARG APP_DIR
+ARG COREPACK_ENABLE_DOWNLOAD_PROMPT
+# ENV PORT=3000
+ENV NODE_ENV=production
+WORKDIR $APP_DIR
+
+# copy app artifacts
+COPY --from=build $APP_DIR/pnpm_deploy/dist .
+COPY --from=build $APP_DIR/pnpm_deploy/node_modules ./node_modules
+
+RUN corepack enable
+RUN corepack prepare --activate 
+
+# be sure also devDependencies that are defined in dist/package.json are installed
+# only prod dependencies are copied, because `--prod` is passed to `pnpm deploy` in the previous stage to avoid copying all unwanted devDependencies
+# pnpm-lock.yaml already copied to dist/ by post-build script
+# using `--dev` will cause other dependencies to be removed
+# todo: do we need to copy pnpm store from the previous store?
+# todo: this also installs deps again
+# ENV PNPM_HOME="/pnpm"
+# ENV PATH="$PNPM_HOME:$PATH"
+WORKDIR $APP_DIR/dist
+# RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod=false 
+# RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install -D tsx kill-port --ignore-workspace
+
+
+WORKDIR $APP_DIR
+# we don't need to expose any port, to publish ports use `ports` property in docker.compose
+# if you still like to expose ports use `--expose` flag when running the container
+EXPOSE $PORT
+CMD pnpm run start

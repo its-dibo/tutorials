@@ -1,0 +1,42 @@
+# run maintenance tasks and commit the results to the main branch:
+# - Linting
+# - updating Docs
+
+name: Maintenance Workflow
+
+on:
+  workflow_call:
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    permissions:
+      # used to push the maintenance tasks results to the main branch
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: prepare
+        uses: ./.github/actions/prepare
+        # todo: typedoc every time generates links using the last commit hash for "defined in" links
+        # resulting in generating new docs files on every merge
+        # ignoring `gitRevision` and `sourceLinkTemplate`
+      - name: linting
+        run: pnpm lint:eslint --quiet
+      - name: update docs
+        # the apps need to be built before generating the docs to avoid the error:
+        # TS6305: ** has not been built from source **
+        run: pnpm docs:generate
+      - name: merge
+        # `git diff --staged  --exit-code`: Checks if there are staged changes.
+        # If yes, proceeds to commit.
+        # also `git status --porcelain` can be used to check if there are any changes
+        # https://stackoverflow.com/a/69545754/12577650
+        # be sure that the user has permissions to push to the main branch
+        # todo: sign the commit
+        # we don't need to run lint-staged for automated commits, so we pass `-n`
+        run: |
+          git config --global user.name 'its-dibo'
+          git config --global user.email 'sh.eldeeb.2010@gmail.com'
+          git add .
+          git diff --staged --exit-code || git commit -n -m "build: run maintenance tasks"
+          git push -f

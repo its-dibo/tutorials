@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["jest", "node"],
+    "tsBuildInfoFile": "tsconfig.spec.tsbuildinfo"
+  },
+  "include": ["**/*.ts", "**/*.spec.ts"],
+  // override `exclude[]` because `*.spec.ts` files are included in tsconfig.base.json
+  "exclude": ["node_modules", "dist", "src/**/templates"]
+}

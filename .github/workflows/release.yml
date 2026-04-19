@@ -1,0 +1,39 @@
+# This workflow runs after the merge is completed to generate semantic releases
+# it runs only after the Testing Workflow success
+
+name: Release workflow
+on:
+  workflow_call:
+
+jobs:
+  release:
+    name: release
+    runs-on: ubuntu-latest
+    # the minimum required permissions for semantic-release:
+    # https://github.com/semantic-release/semantic-release/issues/2469#issuecomment-1158013884
+    # https://github.com/semantic-release/semantic-release/issues/2469#issuecomment-1593078854
+    # make sure that the caller workflow's permissions are aligned with those permissions
+    permissions:
+      # to create releases
+      contents: write
+      # to post issue comments and add labels
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: prepare
+        uses: ./.github/actions/prepare
+
+      # when re-running the workflow, it uses the old repository state
+      # which makes the release success without any changes because the main branch is obsolete
+      # so we need to sync the main branch
+      # - name: Sync main branch
+      #   run: git pull origin main
+
+      - name: release
+        run: pnpm release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

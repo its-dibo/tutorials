@@ -1,0 +1,25 @@
+// TypeDoc options: https://typedoc.org/documents/Options.html
+
+{
+  "entryPoints": ["apps/*", "libs/*"],
+  "out": "docs",
+  "entryPointStrategy": "packages",
+  "exclude": ["**/*.spec.ts", "**/node_modules/**", "**/dist/**"],
+  "includeVersion": true,
+  // remove "Generated using TypeDoc" in the footer
+  "hideGenerator": true,
+  "pretty": true,
+  "sourceLinkExternal": true,
+  "packageOptions": {
+    // ensure all links are relative to the main branch
+    "gitRevision": "main"
+    // "sourceLinkTemplate": "https://github.com/its-dibo/diboblob/main/{path}#L1{line}"
+  },
+  // log errors only
+  "logLevel": "Error",
+  // additional links in the header
+  "navigationLinks": {},
+  // additional links in the sidebar
+  "sidebarLinks": {},
+  "plugin": ["@shipgirl/typedoc-plugin-versions"]
+}

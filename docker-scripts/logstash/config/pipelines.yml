@@ -1,0 +1,4 @@
+# This pipeline is disabled because db is changed from ElasticSearch to Postgres
+# todo: create pipeline rabbit-db
+# - pipeline.id: rabbitmq-to-elasticsearch
+#   path.config: "/usr/share/logstash/pipeline/reporting/rabbitmq-to-elasticsearch.logstash.conf"

@@ -1,0 +1,33 @@
+// don't include extensions that are already included in devcontainer.json
+{
+  "recommendations": [
+    "jakethashi.vscode-angular2-emmet",
+    "angular.ng-template",
+    "infinity1207.angular2-switcher",
+    "anseki.vscode-color",
+    "hookyqr.jsdoctagcomplete",
+    "donjayamanne.githistory",
+    "tuxtina.json2yaml",
+    "aljazsim.tsce",
+    "cybai.yaml-key-viewer",
+    "ms-azuretools.vscode-docker",
+    "dskwrk.vscode-generate-getter-setter",
+    "eamodio.gitlens",
+    "github.vscode-pull-request-github",
+    "markwylde.vscode-filesize",
+    "nrwl.angular-console",
+    "pkief.copy-branch-name",
+    "bradlc.vscode-tailwindcss",
+    "github.vscode-github-actions",
+    "pkief.material-icon-theme",
+    "ashinzekene.nestjs",
+    "figma.figma-vscode-extension",
+    "toba.vsfire",
+    "pflannery.vscode-versionlens",
+    "redhat.vscode-yaml",
+    "randomchance.logstash",
+    "codium.codium",
+    "typescriptteam.native-preview",
+    "esbenp.prettier-vscode"
+  ]
+}

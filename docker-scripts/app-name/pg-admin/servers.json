@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "APP NAME PostgreSQL",
+      "Group": "Servers",
+      "Host": "impactor-app-name-db",
+      "Port": 5432,
+      "Username": "postgres",
+      "Password": "postgres",
+      "MaintenanceDB": "postgres",
+      "SSLMode": "prefer"
+    }
+  }
+}

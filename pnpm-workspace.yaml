@@ -1,0 +1,9 @@
+packages:
+  - "apps/**"
+  - "libs/**"
+  - "comps/**"
+  - "!**/dist"
+
+# link local packages instead of installing from npm
+# todo: this doesn't work here, but worked in .npmrc
+linkWorkspacePackages: deep

@@ -1,0 +1,71 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "composite": true,
+    "jsx": "preserve",
+    "outDir": "./dist",
+    "strict": true,
+    "moduleResolution": "node16",
+    "module": "node20",
+    "target": "esnext",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types", "**/@types"],
+    "removeComments": true,
+    "noEmit": false,
+    "noEmitOnError": false,
+    "noImplicitAny": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveSymlinks": true,
+    "sourceRoot": "",
+    "mapRoot": "",
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "~~*": ["./*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    // required for ts-jest
+    "allowJs": true,
+    /* todo: enable this option https://stackoverflow.com/a/50241920/12577650 */
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+    // forbid non-module files, i.e. files that doesn't have import/export
+    // this is good for transpilers that operate on a single .ts file at a time, such as babel
+    // because the file doesn't rely on other files
+    // when `isolatedModules` is true, it prevents `emitDecoratorMetadata` from emitting all metadata in Angular projects
+    "isolatedModules": true,
+    // save information about the project graph from the last compilation
+    // for Faster subsequent builds
+    // to rebuild from scratch remove the file "tsconfig.tsbuildinfo" before building
+    "incremental": true,
+    "tsBuildInfoFile": "tsconfig.tsbuildinfo",
+    "plugins": []
+  },
+  "exclude": [
+    "**/node_modules",
+    "**/dist",
+    "**/*.spec.ts",
+    "**/e2e",
+    "**/test.ts",
+    "**/src/**/templates"
+  ],
+  "angularCompilerOptions": {
+    "strictTemplates": true,
+    // override some of 'strictTemplates' strictness
+    // todo: enable, it causes error in angular components (html files) ex: <span dir="auto">
+    "strictAttributeTypes": false,
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true
+  }
+}

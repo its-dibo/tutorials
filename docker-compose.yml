@@ -1,0 +1,23 @@
+# Use this compose file to build production-ready apps
+include:
+  - ./docker-compose.services.yml
+services:
+  # list apps here
+  app-name:
+    container_name: impactor-app-name
+    depends_on:
+      - cms-db
+    build:
+      context: .
+      dockerfile: Dockerfile.apps
+      args:
+        - APP_NAME=app-name
+        - DOCKER_BUILDKIT=1
+    env_file:
+      - apps/app-name/.env
+      - apps/app-name/.env.local
+      - apps/app-name/.env.production
+      - apps/app-name/.env.production.local
+    restart: unless-stopped
+    networks:
+      - impactor-network

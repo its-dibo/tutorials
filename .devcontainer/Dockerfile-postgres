@@ -1,0 +1,8 @@
+# use the image `postgis/postgis` instead of `postgres` and installing `postGIS` extension
+
+FROM postgres:latest
+
+# Install PostGIS extension
+RUN apt-get update && apt-get install -y \
+    postgis postgresql-13-postgis-3 \
+    && rm -rf /var/lib/apt/lists/*

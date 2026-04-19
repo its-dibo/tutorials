@@ -1,0 +1,140 @@
+{
+  "name": "dibo",
+  "description": "A monorepo for multiple projects",
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": [
+    "apps/**/*",
+    "libs/**/*",
+    "comps/**/*",
+    "!**/dist"
+  ],
+  "private": true,
+  "engines": {
+    "node": "^18.19.1 || ^20.11.1 || >=22.0.0"
+  },
+  "packageManager": "pnpm@10.30.0",
+  "scripts": {
+    "prepare": "husky || true",
+    "lint": "eslint --fix --config=eslint.config.ts --quiet --cache --concurrency=auto",
+    "lint:inspect": "pnpm exec eslint-config-inspector",
+    "lint:config": "pnpm exec eslint --print-config",
+    "format": "prettier --write --ignore-path=.gitignore --ignore-path=.prettierignore --ignore-unknown",
+    "format:all": "pnpm lint:prettier .",
+    "test": "pnpm tsx node_modules/jest/bin/jest.js --coverage",
+    "test:changed": "pnpm run test --only-changed --no-coverage",
+    "test:fails": "pnpm run test --only-failures --no-coverage",
+    "test:config": "jest --clearCache && jest --showConfig",
+    "test:unit": "pnpm run test --testMatch '**/*.spec.ts' --testMatch '!**/*.e2e.spec.ts'",
+    "test:e2e": "pnpm run test --testMatch '**/*.e2e.spec.ts'",
+    "test:report": "http-server coverage/lcov-report",
+    "build": "pnpm nx run-many -t build",
+    "build:clean": "pnpm clean && pnpm build",
+    "build:libs": "pnpm run build --projects=libs/** ",
+    "delete-tags": "pnpm run delete-tags:remote && pnpm run delete-tags:local",
+    "delete-tags:local": "git tag -d $(git tag -l)",
+    "delete-tags:remote": "git fetch && git push origin --delete $(git tag -l)",
+    "update-all": "npm-check-updates",
+    "postupdate-all": "pnpm install && pnpm audit --fix && pnpm build:clean &&  pnpm t",
+    "update-all:minor": "pnpm run update-all -- --target minor",
+    "reinstall": "pnpm remove-lock && shx rm -fr **/node_modules && pnpm install && pnpm audit --fix",
+    "reinstall:clean": "pnpm store prune && pnpm cache delete && pnpm run reinstall",
+    "remove-lock": "shx rm -f pnpm-lock.yaml && shx rm -f yarn.lock && shx rm -f package-lock.json",
+    "docs": "pnpm run docs:generate && pnpm run docs:serve",
+    "docs:generate": "typedoc",
+    "docs:serve": "http-server docs",
+    "docs:config": "typedoc --showConfig",
+    "reset": "nx reset",
+    "clean": "shx rm -rf **/dist || true &&  shx rm -rf **/.angular || true && shx rm **/*.tsbuildinfo || true && nx reset",
+    "release": "nx release --first-release --verbose --skip-publish",
+    "release:libs": "pnpm release --groups=libs",
+    "release:apps": "pnpm release --groups=apps",
+    "publish": "nx release publish",
+    "publish:libs": "pnpm publish --groups=libs",
+    "publish:apps": "pnpm publish --groups=apps",
+    "update-agents": "nx configure-ai-agents"
+  },
+  "lint-staged": {
+    "*": [
+      "pnpm lint"
+    ]
+  },
+  "dependencies": {
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@commitlint/types": "^20.5.0",
+    "@impactor/eslint-config": "^4.0.0",
+    "@impactor/nodejs": "^5.0.0",
+    "@impactor/nx-manager": "^4.0.0",
+    "@jest/globals": "30.3.0",
+    "@jest/types": "^30.3.0",
+    "@nx/angular": "22.6.5",
+    "@nx/jest": "22.6.5",
+    "@nx/js": "22.6.5",
+    "@nx/plugin": "22.6.5",
+    "@types/node": "^25.6.0",
+    "dotenv": "^17.4.2",
+    "esbuild": "^0.28.0",
+    "eslint": "^10.2.0",
+    "find-workspaces": "^0.3.1",
+    "globals": "^17.5.0",
+    "http-server": "^14.1.1",
+    "husky": "^9.1.7",
+    "jest": "30.3.0",
+    "jest-environment-jsdom": "^30.3.0",
+    "jest-preset-angular": "^16.1.4",
+    "jest-util": "~30.3.0",
+    "lint-staged": "^16.2.6",
+    "monorepo-root": "^3.3.1",
+    "npm-check-updates": "^19.5.0",
+    "nx": "22.6.5",
+    "prettier": "^3.8.2",
+    "shx": "^0.4.0",
+    "ts-jest": "29.4.9",
+    "ts-loader": "^9.5.7",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typedoc": "^0.28.19",
+    "typescript": "^6.0.2",
+    "yargs": "^18.0.0"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/its-dibo/impactor-template.git"
+  },
+  "homepage": "https://github.com/its-dibo/impactor-template#readme",
+  "bugs": {
+    "url": "https://github.com/its-dibo/impactor-template/issues",
+    "email": "sh.eldeeb.2010+github-impactor-template@gmail.com"
+  },
+  "license": "MIT",
+  "author": "Sherif Eldeeb <sh.eldeeb.2010+github@-impactor-templategmail.com> (https://github.com/its-dibo)",
+  "contributors": [],
+  "funding": [
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/group99001"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/GoogleDev"
+    }
+  ],
+  "nx": {
+    "includedScripts": [],
+    "targets": {
+      "local-registry": {
+        "executor": "@nx/js:verdaccio",
+        "options": {
+          "port": 4873,
+          "config": ".verdaccio/config.yml",
+          "storage": "tmp/local-registry/storage"
+        }
+      }
+    }
+  }
+}

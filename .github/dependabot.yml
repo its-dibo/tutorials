@@ -1,0 +1,59 @@
+# use Dependabot to alert you when the repo is using a dependency with a known vulnerability.
+# and also keep all dependencies up to date
+# https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide
+
+version: 2
+updates:
+  # check devcontainer files, such as devcontainer.json, Dockerfile, and Docker Compose files
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    schedule:
+      interval: weekly
+
+  # check dependencies using pnpm-lock.yaml
+  # note: it uses `npm` value not `pnpm`
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: daily
+    # assignees: ["its-dibo"]
+    # reviewers: ["its-dibo"]
+    # combine multiple updates into a single PR
+    groups:
+      NestJs:
+        patterns:
+          [
+            "@nestjs/*",
+            "fastify",
+            "@fastify/*",
+            "express",
+            "@types/express",
+            "typeorm",
+            "pg",
+          ]
+      Angular:
+        patterns:
+          [
+            "@angular/*",
+            "@angular-*",
+            "@schematics/angular",
+            "@ngx-*",
+            "@ng-*",
+            "rxjs",
+            "zone.js",
+            "@nx/angular",
+            "typescript",
+            "primeng",
+            "@primeng/*",
+            "quill",
+            "tailwindcss",
+            "@tailwindcss/*",
+            "postcss",
+          ]
+      EsLint:
+        patterns: ["@eslint/*", "eslint-*"]
+      Nx:
+        patterns: ["@nx/*"]
+      minor-updates:
+        patterns: ["*"]
+        update-types: ["patch", "minor"]

@@ -1,0 +1,83 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      // This task runs when the workspace is opened
+      "label": "prepare the workspace",
+      "dependsOn": ["install dependencies", "install global dependencies"],
+      "dependsOrder": "parallel",
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "revealProblems": "onProblem"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "pull",
+      "group": "build",
+      "type": "shell",
+      "command": "git pull",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "revealProblems": "onProblem",
+        "group": "prepare"
+      }
+    },
+    {
+      "label": "install pnpm",
+      "group": "build",
+      "type": "shell",
+      // ensure to update corepack to avoid the outdated signatures issue `cannot find matching keyid: {"signatures":[...],"keys":[...]}`
+      // https://pnpm.io/installation#using-corepack
+      // https://github.com/nodejs/corepack/issues/612
+      // https://vercel.com/guides/corepack-errors-github-actions
+      // you may need to use sudo to run `corepack enable pnpm`
+      // use `corepack prepare` to automatically download pnpm without asking for confirmation
+      // todo: when installing pnpm, it creates PNPM_HOME env var, but it is not available to terminals until you sign out and sign back in
+      // even using `pnpm setup` doesn't help, also sourcing ~/.bashrc doesn't help
+      "command": "npm i -g -f corepack@latest && corepack enable pnpm && corepack prepare --activate && pnpm -v && pnpm setup",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "revealProblems": "onProblem",
+        "group": "prepare"
+      }
+    },
+    {
+      "label": "install global dependencies",
+      "group": "build",
+      "type": "shell",
+      "command": "pnpm add -g pm2 @nestjs/cli nx",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "revealProblems": "onProblem",
+        "group": "prepare"
+      },
+      "dependsOn": ["install pnpm"]
+    },
+    {
+      "label": "install dependencies",
+      "group": "build",
+      "type": "shell",
+      "command": "pnpm install",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "revealProblems": "onProblem",
+        "group": "prepare"
+      },
+      "dependsOn": ["pull", "install pnpm"]
+    }
+  ],
+  "presentation": {
+    "reveal": "always",
+    "panel": "dedicated",
+    "revealProblems": "onProblem"
+  }
+}

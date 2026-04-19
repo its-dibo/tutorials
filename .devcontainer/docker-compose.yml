@@ -1,0 +1,45 @@
+# vs code creates a container for each service with the name `$serviceName-1` under the group `$ProjectFolderName_devcontainer`
+# to change each container name add `container_name` under each service, for example to be `$serviceName`
+# to change the default group name:
+#  - pass `"runArgs": ["--name", "${localEnv:USER}_devcontainer"]` in devcontainer.json
+#  - set the top-level field `name` in docker-compose
+#  - add COMPOSE_PROJECT_NAME to .env
+# https://docs.docker.com/compose/how-tos/project-name/#set-a-project-name
+
+include:
+  - ../docker-compose.services.yml
+services:
+  # a NodeJs container that contains the source code i.e. the directory `../`
+  source-code:
+    # add 'impactor-' prefix to containers names to avoid the conflict with other containers with the same name
+    # either created by devcontainer in other projects, or created separately
+    container_name: impactor-source-code
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile-app
+      args:
+        # use a NodeJs version compatible with package.engines{}
+        - VARIANT=22
+
+    volumes:
+      # the path of the source code
+      - ../..:/workspaces:cached
+      # for act
+      - ../..:/github/workspace
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+    ports:
+      # app-name
+      - "3000:3000"
+    # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
+    # replaced by creating impactor-network
+    # network_mode: service:db
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+    networks:
+      - impactor-network
+
+networks:
+  impactor-network:
+    driver: bridge

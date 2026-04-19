@@ -1,0 +1,28 @@
+# This workflow runs after the merge to one of the main branches is completed to generate semantic releases
+
+on:
+  push:
+    branches:
+      - main
+      - next
+      - next-major
+      - beta
+      - alpha
+      # maintenance releases branches
+      # - "*.x"
+
+jobs:
+  release:
+    # prevent running the workflow on forked repos
+    if: github.repository == 'AMK-LLC/mashrouk-microservices'
+    uses: ./.github/workflows/release.yml
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+  maintenance:
+    if: github.repository == 'AMK-LLC/mashrouk-microservices'
+    uses: ./.github/workflows/maintenance.yml
+    permissions:
+      contents: write

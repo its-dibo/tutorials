@@ -1,0 +1,99 @@
+// to run Docker daemon inside the devContainer:
+// 1- use Docker-in-docker (DinD) to create an independent docker instance inside the devContainer
+// 2- useDocker-outside-of-docker to use the host's docker instance by bind mounting the docker socket
+// to install Docker in devContainer (DinD) add `features["docker-in-docker"]` and install docker in Dockerfile
+// and mount `"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"`
+// and add `--privileged`
+{
+  "name": "Impactor",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "source-code",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  // allow other containers to access the postgres and pgAdmin containers
+  // todo: do we need `forwardPorts` if all containers shares the same custom network?
+  // "forwardPorts": [5432, 5050, 5672, 15672],
+  // https://containers.dev/features
+  // todo: pre-install extensions (or install the workspace recommended extensions every time the container starts)
+  "features": {
+    // Docker-in-Docker
+    // https://github.com/devcontainers/features/tree/main/src/docker-in-docker
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest"
+    }
+  },
+  // services that are not listed in ./devcontainer/docker-compose.yml (i.e. in the root dir)
+  // will not started by vscode automatically unless they are marked as `depend_on` in ./devcontainer/docker-compose.yml
+  // so we need to add them in `runServices` to be started automatically,
+  // or run them manually from /docker-compose.services.yml
+  "runServices": ["source-code"],
+  "customizations": {
+    "vscode": {
+      // add the required extensions here
+      // other optional extensions can be added in .vscode/extensions as recommendations
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens",
+        "streetsidesoftware.code-spell-checker",
+        "vivaxy.vscode-conventional-commits"
+      ],
+      // vscode extensions setting
+      // same as .vscode/settings.json but are set when the devcontainer built
+      "settings": {
+        // automatically run `git commit` after the commit message is created
+        // if `git.enableSmartCommit` enabled, it will automatically stage the modified files if there is no staged files
+        "conventionalCommits.autoCommit": true,
+        "conventionalCommits.gitmoji": false,
+        "conventionalCommits.lineBreak": "\\n",
+        // add the body in the source control tab directly
+        "conventionalCommits.promptBody": false,
+        "conventionalCommits.promptFooter": false,
+        "conventionalCommits.": false,
+        // when running `git commit` and no staged files, it will automatically stage the modified files
+        "git.enableSmartCommit": true,
+        "git.smartCommitChanges": "all",
+        // if you want to automatically push or sync after creating the commit
+        // i.e. run `git push` automatically after running `git commit`
+        "git.postCommitCommand": "none"
+      }
+    }
+  },
+  "mounts": [
+    // share ssh keys from WSL with the devContainer
+    // devContainer already shares the host's ssh-agent, which is windows, not WSL, so we need to mount the wsl's ssh-agent
+    "source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind",
+    "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind"
+    // bind the host's Docker daemon to allow devContainer to access the host's Docker engine
+    // "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  // `runArgs` cannot be used with `workspaceFolder` together
+  // https://stackoverflow.com/questions/69252710/devcontainer-json-property-service-dockercomposefile-is-not-allowed#comment125318383_69252710
+  // "runArgs": [
+  //   // route the docker localhost to the host
+  //   // without it: when connecting to a db installed in the host, you should use the container name, not `localhost`
+  //   // because localhost refers to the container itself
+  //   // with it: `localhost` refers to the host directly
+  //   "--add-host=host.docker.internal:host-gateway",
+  //   "--privileged"
+  // ],
+  "remoteEnv": {
+    "SSH_AUTH_SOCK": "/ssh-agent"
+  },
+  // use `postCreateCommand` to run commands after the container is created.
+  // give the user permission to run Docker commands
+  "postCreateCommand": "sudo usermod -aG docker vscode && sudo chmod 666 /var/run/docker.sock"
+  // use the host's docker daemon inside the devContainer
+  // for linux: `ENV DOCKER_HOST=unix:///var/run/docker.sock`
+  // for windows (WSL): `ENV DOCKER_HOST=tcp://host.docker.internal:2375`
+  // todo: test if this cmd runs in windows and linux
+  // todo: test if devContainer can connect to the host's docker daemon
+  // "postCreateCommand": "sh -c 'if [ \"$(uname -s)\" == \"Linux\" ]; then export DOCKER_HOST=unix:///var/run/docker.sock; else export DOCKER_HOST=tcp://host.docker.internal:2375; fi'",
+
+  // to solve: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.soc
+  // give the user permission to run Docker commands
+  // https://stackoverflow.com/a/51362528/12577650
+  // when using Docker-in-Docker the container already opens with --privileged
+  // "postCreateCommand": "sudo usermod -aG docker vscode &&  sudo chmod 666 /var/run/docker.sock"
+  // Uncomment to connect as root instead https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
