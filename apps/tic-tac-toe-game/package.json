@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "Tic Tac Toe game with HTML and JS",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "start": "http-server src -o -c -1"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
 }

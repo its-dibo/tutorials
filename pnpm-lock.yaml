@@ -124,6 +124,12 @@ importers:
         specifier: ^18.0.0
         version: 18.0.0
 
+  apps/tic-tac-toe-game:
+    dependencies:
+      http-server:
+        specifier: ^14.1.1
+        version: 14.1.1
+
 packages:
 
   '@angular-devkit/core@21.2.7':
