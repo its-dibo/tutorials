@@ -124,5 +124,6 @@
   // enable Typescript native
   // https://devblogs.microsoft.com/typescript/typescript-native-port/
   // https://devblogs.microsoft.com/typescript/announcing-typescript-native-previews/
-  "typescript.experimental.useTsgo": false
+  "typescript.experimental.useTsgo": false,
+  "workbench.browser.openLocalhostLinks": true
 }
