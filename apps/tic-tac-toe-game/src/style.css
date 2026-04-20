@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: start;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  max-width: 300px;
+  margin: auto;
+
+  #board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .square {
+      background-color: rgb(40, 40, 214);
+      border: solid thin gray;
+      /* make the content of the square centered horizontally */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      cursor: pointer;
+      aspect-ratio: 1;
+
+      &:hover {
+        background-color: rgb(8, 8, 238);
+      }
+    }
+
+    .sq-top {
+      border-top: none;
+    }
+    .sq-bottom {
+      border-bottom: none;
+    }
+    .sq-left {
+      border-left: none;
+    }
+    .sq-right {
+      border-right: none;
+    }
+  }
+}
+
+#footer,
+#info {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+#info {
+  margin-bottom: 10px;
+}
+
+#footer {
+  margin-top: 10px;
+
+  button {
+    padding: 10px;
+    background-color: blueviolet;
+    border-radius: 5px;
+    border-color: unset;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+  }
+}
