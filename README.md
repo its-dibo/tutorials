@@ -46,3 +46,11 @@ A Tic Tac Toc game with pure Javascript
 [full documentaion and demos](./apps/tic-tac-toe-game/README.md)
 
 ---
+
+### Prayer Times (NextJs)
+
+<img src="./apps/prayer-time-nextjs/assets/prayer-times.png" alt="Prayer Times" />
+
+Prayer times with NextJs and tailwindCss
+
+[full documentaion and demos](./apps/prayer-time-nextjs/README.md)
