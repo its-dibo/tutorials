@@ -22,14 +22,14 @@ importers:
         specifier: ^20.5.0
         version: 20.5.0
       '@impactor/eslint-config':
-        specifier: ^4.0.2
-        version: 4.0.2(@angular-eslint/template-parser@21.3.1(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(@types/eslint@9.6.1)(@types/node@25.6.0)(@typescript-eslint/eslint-plugin@8.58.2(@typescript-eslint/parser@8.58.2(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(@typescript-eslint/utils@8.58.2(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(crossws@0.3.5)(eslint@10.2.1(jiti@2.6.1))(graphql@16.13.2)(jest@30.3.0(@types/node@25.6.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3)))(prettier@3.8.3)(typescript@6.0.3)
+        specifier: ^5.0.0
+        version: 5.0.0(@angular-eslint/template-parser@21.3.1(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(@types/eslint@9.6.1)(@types/node@25.6.0)(@typescript-eslint/eslint-plugin@8.58.2(@typescript-eslint/parser@8.58.2(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(@typescript-eslint/utils@8.58.2(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(crossws@0.3.5)(eslint@10.2.1(jiti@2.6.1))(graphql@16.13.2)(jest@30.3.0(@types/node@25.6.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3)))(prettier@3.8.3)(typescript@6.0.3)
       '@impactor/nodejs':
-        specifier: ^5.0.3
-        version: 5.0.3
+        specifier: ^6.0.0
+        version: 6.0.0
       '@impactor/nx-manager':
-        specifier: ^4.0.2
-        version: 4.0.2(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8)(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8)(@schematics/angular@21.2.7(chokidar@5.0.0))(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react-refresh@0.18.0)(react@19.2.5)(rxjs@7.8.2)(typescript@6.0.3)
+        specifier: ^5.0.0
+        version: 5.0.0(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8)(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8)(@schematics/angular@21.2.7(chokidar@5.0.0))(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react-refresh@0.18.0)(react@19.2.5)(rxjs@7.8.2)(typescript@6.0.3)
       '@jest/globals':
         specifier: 30.3.0
         version: 30.3.0
@@ -125,7 +125,7 @@ importers:
         version: 18.0.0
 
   apps/tic-tac-toe-game:
-    dependencies:
+    devDependencies:
       http-server:
         specifier: ^14.1.1
         version: 14.1.1
@@ -1583,8 +1583,8 @@ packages:
     resolution: {integrity: sha512-Y10yvyrIVInkWJuPIQZesTDw/4qxPX7cc1GgS2vybkitpxVXIBjG2Lk+sVL0NE3DL6SHZGMGtVXSuh0PlXBSlQ==}
     engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0}
 
-  '@impactor/eslint-config@4.0.2':
-    resolution: {integrity: sha512-+I6bGm/nS5j8WCOfMjzxtfgkd3669FRYDI09c6FicDy/N4XexAmdw5GlTvoMF3Xnj6KpfoIMrrAV60ecHlbknA==}
+  '@impactor/eslint-config@5.0.0':
+    resolution: {integrity: sha512-oM+So4gFyIXgP7O4zKS8UeVr51RB/fdkm68Qx3a/6lR4gJ/BNtYjN80Ls06rIj78O5hjLmqX890/8CaJVucqpw==}
     engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0}
     peerDependencies:
       eslint: '>=9'
@@ -1593,11 +1593,12 @@ packages:
     resolution: {integrity: sha512-jnArdF8CWW5kOIaWFL8nwe49bJpO1HGY65E/s+I4z/gwrXqK1co7jZGmq2kR2apJ/vWBLlmxgVjOSYGxIU5taQ==}
     engines: {node: '>=16.6.0'}
 
-  '@impactor/nodejs@5.0.3':
-    resolution: {integrity: sha512-0gW/ud291LDNKuanAmjJjkjwSVO/+9KH5Yt0iT12WgMb4mXvfe2OCFdXg48wSZLj0dlzHZ5F7kvLE8hRDuyg+A==}
+  '@impactor/nodejs@6.0.0':
+    resolution: {integrity: sha512-2HCMx6PI17s/6UfaRUbM3/+ThGtMC/E7gRKfff3wJZM3n1biozn7jtGHna7Xz1RoscARIE1VdHQKj2VicWfG2w==}
+    engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0}
 
-  '@impactor/nx-manager@4.0.2':
-    resolution: {integrity: sha512-S8vY3q66cGFFHH+rFTD5csZ3gPQi54feW6RqVFXvU7bMLh3+Jioi1/KyhZ7IaIYSPDomxL3cvO/X7cb68AlO5w==}
+  '@impactor/nx-manager@5.0.0':
+    resolution: {integrity: sha512-fgwlKOcoM8mutjatZBZwOZGqjsGP4VJQQsQ44BKrEojuvmIkFqLTDnqoTRoDquHa2CRTEKYSQL4NTFdKhOaZaA==}
     engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0}
 
   '@isaacs/cliui@8.0.2':
@@ -9680,7 +9681,7 @@ snapshots:
     dependencies:
       '@impactor/javascript': 5.0.2
 
-  '@impactor/eslint-config@4.0.2(@angular-eslint/template-parser@21.3.1(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(@types/eslint@9.6.1)(@types/node@25.6.0)(@typescript-eslint/eslint-plugin@8.58.2(@typescript-eslint/parser@8.58.2(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(@typescript-eslint/utils@8.58.2(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(crossws@0.3.5)(eslint@10.2.1(jiti@2.6.1))(graphql@16.13.2)(jest@30.3.0(@types/node@25.6.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3)))(prettier@3.8.3)(typescript@6.0.3)':
+  '@impactor/eslint-config@5.0.0(@angular-eslint/template-parser@21.3.1(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(@types/eslint@9.6.1)(@types/node@25.6.0)(@typescript-eslint/eslint-plugin@8.58.2(@typescript-eslint/parser@8.58.2(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(@typescript-eslint/utils@8.58.2(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(crossws@0.3.5)(eslint@10.2.1(jiti@2.6.1))(graphql@16.13.2)(jest@30.3.0(@types/node@25.6.0)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3)))(prettier@3.8.3)(typescript@6.0.3)':
     dependencies:
       '@angular-eslint/eslint-plugin': 21.3.1(@typescript-eslint/utils@8.58.2(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3)
       '@angular-eslint/eslint-plugin-template': 21.3.1(@angular-eslint/template-parser@21.3.1(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(@typescript-eslint/types@8.58.2)(@typescript-eslint/utils@8.58.2(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3)
@@ -9751,13 +9752,13 @@ snapshots:
     dependencies:
       lodash.template: 4.18.1
 
-  '@impactor/nodejs@5.0.3':
+  '@impactor/nodejs@6.0.0':
     dependencies:
       '@impactor/cache': 5.0.2
       '@impactor/javascript': 5.0.2
       content-type: 1.0.5
 
-  '@impactor/nx-manager@4.0.2(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8)(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8)(@schematics/angular@21.2.7(chokidar@5.0.0))(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react-refresh@0.18.0)(react@19.2.5)(rxjs@7.8.2)(typescript@6.0.3)':
+  '@impactor/nx-manager@5.0.0(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8)(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8)(@schematics/angular@21.2.7(chokidar@5.0.0))(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react-refresh@0.18.0)(react@19.2.5)(rxjs@7.8.2)(typescript@6.0.3)':
     dependencies:
       '@nx/angular': 22.6.5(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8)(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8)(@schematics/angular@21.2.7(chokidar@5.0.0))(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react-refresh@0.18.0)(react@19.2.5)(rxjs@7.8.2)(typescript@6.0.3)
       '@nx/devkit': 22.6.5(nx@22.6.5)
