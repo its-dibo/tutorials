@@ -1,39 +1,29 @@
 let currentPlayer = "x";
-let board = [null, null, null, null, null, null, null, null, null];
 let squares = document.querySelectorAll(".square");
 let winner;
 
 document.querySelector("#player").textContent = currentPlayer;
 
-for (let square of squares) {
+for (let [_idx, square] of squares.entries()) {
   // print square numbers
-  // square.textContent = square.dataset.idx;
+  // square.textContent = idx;
 
   square.addEventListener("click", (ev) => {
-    let el = ev.target,
-      idx = el.dataset.idx;
+    let el = ev.target;
 
     if (winner || el.textContent) {
       return;
     }
 
-    board[idx] = currentPlayer;
     el.textContent = currentPlayer;
-
-    el.disabled = true;
 
     winner = checkWinner();
     if (winner) {
       document.querySelector("#winner").textContent = currentPlayer;
-      squares.forEach((el) => {
-        el.disabled = true;
-      });
     }
 
     togglePlayer();
     document.querySelector("#player").textContent = currentPlayer;
-
-    console.log(board);
   });
 }
 
@@ -42,6 +32,7 @@ function togglePlayer() {
 }
 
 function checkWinner() {
+  // all probabelities
   let wins = [
     // rows
     [0, 1, 2],
@@ -58,11 +49,10 @@ function checkWinner() {
     [2, 4, 6],
   ];
 
+  let board = [...squares].map((el) => el.textContent);
+
   for (let win of wins) {
-    if (
-      board[win[0]] !== null &&
-      win.every((el) => board[el] === board[win[0]])
-    ) {
+    if (board[win[0]] && win.every((el) => board[el] === board[win[0]])) {
       return currentPlayer;
     }
   }
@@ -78,11 +68,8 @@ document.querySelector("#reset").addEventListener("click", (_ev) => {
 
   for (let square of squares) {
     square.textContent = null;
-    square.disabled = false;
   }
 
   document.querySelector("#player").textContent = currentPlayer;
   document.querySelector("#winner").textContent = null;
-
-  board = board.map((_el) => null);
 });
