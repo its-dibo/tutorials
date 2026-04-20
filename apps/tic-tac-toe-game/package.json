@@ -4,7 +4,7 @@
   "description": "Tic Tac Toe game with HTML and JS",
   "type": "module",
   "scripts": {
-    "start": "http-server src -c -1"
+    "start": "http-server src -c-1"
   },
   "keywords": [],
   "author": "",
