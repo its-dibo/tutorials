@@ -11,17 +11,17 @@ export function Header(props: IProps) {
 
   return (
     <div id="header">
-      <div>
+      <div className="col">
         <div className="text-2xl my-2">{city}</div>
         <div>{time}</div>
       </div>
 
-      <div>
+      <div className="col">
         <div className="text-2xl my-2">Next Prayer</div>
         <div>{nextPrayer?.prayer}</div>
       </div>
 
-      <div>
+      <div className="col">
         <div className="text-2xl my-2">remaining time to Adhan</div>
         <div>{nextPrayer?.remainingTime}</div>
       </div>
