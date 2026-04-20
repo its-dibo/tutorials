@@ -1,10 +1,13 @@
 # Tic Tac Toe game
 
+<img src="./assets/demo.png" alt="screenshot" />
+
 ## Stack
 
 - Javascript
 - HTML
 - CSS
+- Google fonts
 
 ## Demo
 
