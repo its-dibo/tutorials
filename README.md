@@ -34,3 +34,15 @@ please read our [code of conduct](/CODE_OF_CONDUCT.md)
 - get the auth key from https://opencode.ai/workspace
 - create `.opencode-key` in the root dir and paste your key`
 - open `opencode` in the integrated terminal
+
+## Apps
+
+### Tic Tac Toe game
+
+<img src="./apps/tic-tac-toe-game/assets/demo.png" alt="screenshot" />
+
+A Tic Tac Toc game with pure Javascript
+
+[full documentaion and demos](./apps/tic-tac-toe-game/README.md)
+
+---
