@@ -26,3 +26,11 @@ give us a star
 ## contributing
 
 please read our [code of conduct](/CODE_OF_CONDUCT.md)
+
+## AI
+
+### authenticate opencode
+
+- get the auth key from https://opencode.ai/workspace
+- create `.opencode-key` in the root dir and paste your key`
+- open `opencode` in the integrated terminal

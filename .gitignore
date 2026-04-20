@@ -12,6 +12,9 @@
 !*.env.example
 !*.env.vault
 
+# open code auth token
+.opencode-key
+
 # auto generated Swagger metadata
 nest-swagger-metadata.js
 
