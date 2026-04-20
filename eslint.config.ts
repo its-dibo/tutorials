@@ -18,6 +18,10 @@ export default [
   }),
   ...esLintConfigAngular({
     strict,
+    // todo: add Angular template files here
+    // by default it adds all html files which may cause an issue with prettier
+    // `Parsing error: Unexpected token  prettier/prettier`
+    templateFiles: ['libs/ngx-*/**/*.html'],
   }),
   {
     ignores: [
