@@ -89,7 +89,7 @@
     "jest-util": "~30.3.0",
     "lint-staged": "^16.2.6",
     "monorepo-root": "^3.3.1",
-    "npm-check-updates": "^19.5.0",
+    "npm-check-updates": "^21.0.2",
     "nx": "22.6.5",
     "prettier": "^3.8.3",
     "shx": "^0.4.0",
