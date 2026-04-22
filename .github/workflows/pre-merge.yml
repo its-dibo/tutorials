@@ -22,7 +22,7 @@ jobs:
     needs: commitLint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: prepare
         uses: ./.github/actions/prepare
         # todo: stop on first error
