@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./NavBar.css";
 
 export function NavBar() {
@@ -5,7 +6,9 @@ export function NavBar() {
     <nav>
       {/* logo */}
       <div>
-        <span>SuperBlog</span>
+        <span>
+          <Link href="/">SuperBlog</Link>
+        </span>
       </div>
 
       {/* links */}
