@@ -45,7 +45,7 @@ runs:
         # don't run `pnpm install` unless the cache is restored by `actions/setup-node`
         run_install: false
 
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v6
       with:
         # read from pkg.engines
         node-version: ${{ inputs.nodeVersion }}
