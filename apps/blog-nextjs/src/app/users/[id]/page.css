@@ -1,0 +1,10 @@
+.key {
+  margin-inline-end: 10px;
+  color: gray;
+  font-style: italic;
+  font-weight: 900;
+
+  &::after {
+    content: ":";
+  }
+}
