@@ -71,7 +71,7 @@
     "@impactor/nx-manager": "^5.0.0",
     "@jest/globals": "30.3.0",
     "@jest/types": "^30.3.0",
-    "@nx/angular": "22.6.5",
+    "@nx/angular": "22.7.0",
     "@nx/jest": "22.6.5",
     "@nx/js": "22.6.5",
     "@nx/plugin": "22.6.5",
@@ -98,7 +98,7 @@
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
     "typedoc": "^0.28.19",
-    "typescript": "^6.0.2",
+    "typescript": "^6.0.3",
     "yargs": "^18.0.0"
   },
   "keywords": [],
