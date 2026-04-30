@@ -20,7 +20,7 @@ jobs:
       # get information about the PR contents such as the updated dependencies
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v2.2.0
+        uses: dependabot/fetch-metadata@v3.1.0
 
       # todo: to auto merge minor (or less) updates only use `if: steps.metadata.outputs.update-type == 'version-update:semver-minor'`
       - name: Enable auto merging for Dependabot PRs
