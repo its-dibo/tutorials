@@ -14,7 +14,7 @@ jobs:
       # used to push the maintenance tasks results to the main branch
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: prepare
         uses: ./.github/actions/prepare
         # todo: typedoc every time generates links using the last commit hash for "defined in" links
