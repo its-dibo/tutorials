@@ -10,7 +10,7 @@ jobs:
     steps:
       # we must checkout the code first, to use actions from the same repo
       # https://github.com/orgs/community/discussions/26245#discussioncomment-3250935
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: prepare
         uses: ./.github/actions/prepare
       - name: run unit testing
@@ -45,7 +45,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: prepare
         uses: ./.github/actions/prepare
       - name: run postgres scripts
