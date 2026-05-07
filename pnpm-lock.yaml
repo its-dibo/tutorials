@@ -36,7 +36,7 @@ importers:
         version: 6.0.0
       '@impactor/nx-manager':
         specifier: ^5.0.0
-        version: 5.0.0(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8(@swc/helpers@0.5.15))(@schematics/angular@21.2.7(chokidar@5.0.0))(@swc/helpers@0.5.15)(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react-refresh@0.18.0)(react@19.2.5)(rxjs@7.8.2)(typescript@6.0.3)
+        version: 5.0.0(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8(@swc/helpers@0.5.15))(@schematics/angular@21.2.7(chokidar@5.0.0))(@swc/helpers@0.5.15)(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.6(react@19.2.6))(react-refresh@0.18.0)(react@19.2.6)(rxjs@7.8.2)(typescript@6.0.3)
       '@jest/globals':
         specifier: 30.3.0
         version: 30.3.0
@@ -45,7 +45,7 @@ importers:
         version: 30.3.0
       '@nx/angular':
         specifier: 22.6.5
-        version: 22.6.5(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8(@swc/helpers@0.5.15))(@schematics/angular@21.2.7(chokidar@5.0.0))(@swc/helpers@0.5.15)(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react-refresh@0.18.0)(react@19.2.5)(rxjs@7.8.2)(typescript@6.0.3)
+        version: 22.6.5(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8(@swc/helpers@0.5.15))(@schematics/angular@21.2.7(chokidar@5.0.0))(@swc/helpers@0.5.15)(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.6(react@19.2.6))(react-refresh@0.18.0)(react@19.2.6)(rxjs@7.8.2)(typescript@6.0.3)
       '@nx/jest':
         specifier: 22.6.5
         version: 22.6.5(@babel/traverse@7.29.0)(@types/node@25.6.0)(babel-plugin-macros@3.1.0)(nx@22.6.5)(ts-node@10.9.2(@types/node@25.6.0)(typescript@6.0.3))(typescript@6.0.3)
@@ -135,13 +135,13 @@ importers:
     dependencies:
       next:
         specifier: 16.2.4
-        version: 16.2.4(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.99.0)
+        version: 16.2.4(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.99.0)
       react:
-        specifier: 19.2.4
-        version: 19.2.4
+        specifier: 19.2.6
+        version: 19.2.6
       react-dom:
-        specifier: 19.2.4
-        version: 19.2.4(react@19.2.4)
+        specifier: 19.2.6
+        version: 19.2.6(react@19.2.6)
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4
@@ -172,13 +172,13 @@ importers:
         version: 0.5.1
       next:
         specifier: 16.2.4
-        version: 16.2.4(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.99.0)
+        version: 16.2.4(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.99.0)
       react:
-        specifier: 19.2.4
-        version: 19.2.4
+        specifier: 19.2.6
+        version: 19.2.6
       react-dom:
-        specifier: 19.2.4
-        version: 19.2.4(react@19.2.4)
+        specifier: 19.2.6
+        version: 19.2.6(react@19.2.6)
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4
@@ -3055,6 +3055,7 @@ packages:
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
+    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
 
   '@unrs/resolver-binding-android-arm-eabi@1.11.1':
     resolution: {integrity: sha512-ppLRUgHVaGRWUx0R0Ut06Mjo9gBaBkg3v/8AxusGLhsIotbBLuRk51rAzqLC8gq6NyyAojEXglNjzf6R948DNw==}
@@ -7099,15 +7100,10 @@ packages:
     resolution: {integrity: sha512-s4VSOf6yN0rvbRZGxs8Om5CWj6seneMwK3oDb4lWDH0UPhWcxwOWw5+qk24bxq87szX1ydrwylIOp2uG1ojUpA==}
     engines: {node: '>= 0.8'}
 
-  react-dom@19.2.4:
-    resolution: {integrity: sha512-AXJdLo8kgMbimY95O2aKQqsz2iWi9jMgKJhRBAxECE4IFxfcazB2LmzloIoibJI3C12IlY20+KFaLv+71bUJeQ==}
+  react-dom@19.2.6:
+    resolution: {integrity: sha512-0prMI+hvBbPjsWnxDLxlCGyM8PN6UuWjEUCYmZhO67xIV9Xasa/r/vDnq+Xyq4Lo27g8QSbO5YzARu0D1Sps3g==}
     peerDependencies:
-      react: ^19.2.4
-
-  react-dom@19.2.5:
-    resolution: {integrity: sha512-J5bAZz+DXMMwW/wV3xzKke59Af6CHY7G4uYLN1OvBcKEsWOs4pQExj86BBKamxl/Ik5bx9whOrvBlSDfWzgSag==}
-    peerDependencies:
-      react: ^19.2.5
+      react: ^19.2.6
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -7119,12 +7115,8 @@ packages:
     resolution: {integrity: sha512-QgT5//D3jfjJb6Gsjxv0Slpj23ip+HtOpnNgnb2S5zU3CB26G/IDPGoy4RJB42wzFE46DRsstbW6tKHoKbhAxw==}
     engines: {node: '>=0.10.0'}
 
-  react@19.2.4:
-    resolution: {integrity: sha512-9nfp2hYpCwOjAN+8TZFGhtWEwgvWHXqESH8qT89AT/lWklpLON22Lc8pEtnpsZz7VmawabSU0gCjnj8aC0euHQ==}
-    engines: {node: '>=0.10.0'}
-
-  react@19.2.5:
-    resolution: {integrity: sha512-llUJLzz1zTUBrskt2pwZgLq59AemifIftw4aB7JxOqf1HY2FDaGDxgwpAPVzHU1kdWabH7FauP4i1oEeer2WCA==}
+  react@19.2.6:
+    resolution: {integrity: sha512-sfWGGfavi0xr8Pg0sVsyHMAOziVYKgPLNrS7ig+ivMNb3wbCBw3KxtflsGBAwD3gYQlE/AEZsTLgToRrSCjb0Q==}
     engines: {node: '>=0.10.0'}
 
   read-cache@1.0.0:
@@ -8277,6 +8269,7 @@ packages:
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   v8-compile-cache-lib@3.0.1:
@@ -10393,9 +10386,9 @@ snapshots:
       '@impactor/javascript': 5.0.2
       content-type: 1.0.5
 
-  '@impactor/nx-manager@5.0.0(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8(@swc/helpers@0.5.15))(@schematics/angular@21.2.7(chokidar@5.0.0))(@swc/helpers@0.5.15)(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react-refresh@0.18.0)(react@19.2.5)(rxjs@7.8.2)(typescript@6.0.3)':
+  '@impactor/nx-manager@5.0.0(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8(@swc/helpers@0.5.15))(@schematics/angular@21.2.7(chokidar@5.0.0))(@swc/helpers@0.5.15)(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.6(react@19.2.6))(react-refresh@0.18.0)(react@19.2.6)(rxjs@7.8.2)(typescript@6.0.3)':
     dependencies:
-      '@nx/angular': 22.6.5(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8(@swc/helpers@0.5.15))(@schematics/angular@21.2.7(chokidar@5.0.0))(@swc/helpers@0.5.15)(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react-refresh@0.18.0)(react@19.2.5)(rxjs@7.8.2)(typescript@6.0.3)
+      '@nx/angular': 22.6.5(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8(@swc/helpers@0.5.15))(@schematics/angular@21.2.7(chokidar@5.0.0))(@swc/helpers@0.5.15)(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.6(react@19.2.6))(react-refresh@0.18.0)(react@19.2.6)(rxjs@7.8.2)(typescript@6.0.3)
       '@nx/devkit': 22.6.5(nx@22.6.5)
       '@nx/esbuild': 22.6.5(@babel/traverse@7.29.0)(esbuild@0.28.0)(nx@22.6.5)
       tslib: 2.8.1
@@ -10838,13 +10831,13 @@ snapshots:
       - utf-8-validate
       - vue-tsc
 
-  '@module-federation/data-prefetch@2.3.3(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+  '@module-federation/data-prefetch@2.3.3(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
       '@module-federation/runtime': 2.3.3(node-fetch@2.7.0(encoding@0.1.13))
       '@module-federation/sdk': 2.3.3(node-fetch@2.7.0(encoding@0.1.13))
     optionalDependencies:
-      react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
+      react: 19.2.6
+      react-dom: 19.2.6(react@19.2.6)
     transitivePeerDependencies:
       - node-fetch
 
@@ -10866,11 +10859,11 @@ snapshots:
       - node-fetch
       - utf-8-validate
 
-  '@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))':
+  '@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))':
     dependencies:
       '@module-federation/bridge-react-webpack-plugin': 2.3.3(node-fetch@2.7.0(encoding@0.1.13))
       '@module-federation/cli': 2.3.3(node-fetch@2.7.0(encoding@0.1.13))(typescript@6.0.3)
-      '@module-federation/data-prefetch': 2.3.3(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@module-federation/data-prefetch': 2.3.3(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@module-federation/dts-plugin': 2.3.3(node-fetch@2.7.0(encoding@0.1.13))(typescript@6.0.3)
       '@module-federation/error-codes': 2.3.3
       '@module-federation/inject-external-runtime-core-plugin': 2.3.3(@module-federation/runtime-tools@2.3.3(node-fetch@2.7.0(encoding@0.1.13)))
@@ -10922,9 +10915,9 @@ snapshots:
       - utf-8-validate
       - vue-tsc
 
-  '@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))':
+  '@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))':
     dependencies:
-      '@module-federation/enhanced': 2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))
+      '@module-federation/enhanced': 2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))
       '@module-federation/runtime': 2.3.3(node-fetch@2.7.0(encoding@0.1.13))
       '@module-federation/sdk': 2.3.3(node-fetch@2.7.0(encoding@0.1.13))
       encoding: 0.1.13
@@ -11099,15 +11092,15 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.1
 
-  '@nx/angular@22.6.5(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8(@swc/helpers@0.5.15))(@schematics/angular@21.2.7(chokidar@5.0.0))(@swc/helpers@0.5.15)(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react-refresh@0.18.0)(react@19.2.5)(rxjs@7.8.2)(typescript@6.0.3)':
+  '@nx/angular@22.6.5(@angular-devkit/core@21.2.7(chokidar@5.0.0))(@angular-devkit/schematics@21.2.7(chokidar@5.0.0))(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@rspack/core@1.6.8(@swc/helpers@0.5.15))(@schematics/angular@21.2.7(chokidar@5.0.0))(@swc/helpers@0.5.15)(@zkochan/js-yaml@0.0.7)(esbuild@0.28.0)(eslint@10.2.1(jiti@2.6.1))(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.6(react@19.2.6))(react-refresh@0.18.0)(react@19.2.6)(rxjs@7.8.2)(typescript@6.0.3)':
     dependencies:
       '@angular-devkit/core': 21.2.7(chokidar@5.0.0)
       '@angular-devkit/schematics': 21.2.7(chokidar@5.0.0)
       '@nx/devkit': 22.6.5(nx@22.6.5)
       '@nx/eslint': 22.6.5(@babel/traverse@7.29.0)(@zkochan/js-yaml@0.0.7)(eslint@10.2.1(jiti@2.6.1))(nx@22.6.5)
       '@nx/js': 22.6.5(@babel/traverse@7.29.0)(nx@22.6.5)
-      '@nx/module-federation': 22.6.5(@babel/traverse@7.29.0)(@swc/helpers@0.5.15)(esbuild@0.28.0)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)
-      '@nx/rspack': 22.6.5(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@swc/helpers@0.5.15)(esbuild@0.28.0)(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react-refresh@0.18.0)(react@19.2.5)(typescript@6.0.3)
+      '@nx/module-federation': 22.6.5(@babel/traverse@7.29.0)(@swc/helpers@0.5.15)(esbuild@0.28.0)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)
+      '@nx/rspack': 22.6.5(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@swc/helpers@0.5.15)(esbuild@0.28.0)(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.6(react@19.2.6))(react-refresh@0.18.0)(react@19.2.6)(typescript@6.0.3)
       '@nx/web': 22.6.5(@babel/traverse@7.29.0)(nx@22.6.5)
       '@nx/webpack': 22.6.5(@babel/traverse@7.29.0)(@rspack/core@1.6.8(@swc/helpers@0.5.15))(esbuild@0.28.0)(nx@22.6.5)(typescript@6.0.3)
       '@nx/workspace': 22.6.5
@@ -11274,10 +11267,10 @@ snapshots:
       - nx
       - supports-color
 
-  '@nx/module-federation@22.6.5(@babel/traverse@7.29.0)(@swc/helpers@0.5.15)(esbuild@0.28.0)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)':
+  '@nx/module-federation@22.6.5(@babel/traverse@7.29.0)(@swc/helpers@0.5.15)(esbuild@0.28.0)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)':
     dependencies:
-      '@module-federation/enhanced': 2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))
-      '@module-federation/node': 2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))
+      '@module-federation/enhanced': 2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))
+      '@module-federation/node': 2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))
       '@module-federation/sdk': 2.3.3(node-fetch@2.7.0(encoding@0.1.13))
       '@nx/devkit': 22.6.5(nx@22.6.5)
       '@nx/js': 22.6.5(@babel/traverse@7.29.0)(nx@22.6.5)
@@ -11362,13 +11355,13 @@ snapshots:
       - typescript
       - verdaccio
 
-  '@nx/rspack@22.6.5(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@swc/helpers@0.5.15)(esbuild@0.28.0)(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react-refresh@0.18.0)(react@19.2.5)(typescript@6.0.3)':
+  '@nx/rspack@22.6.5(@babel/traverse@7.29.0)(@module-federation/enhanced@2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@module-federation/node@2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0)))(@swc/helpers@0.5.15)(esbuild@0.28.0)(less@4.5.1)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.6(react@19.2.6))(react-refresh@0.18.0)(react@19.2.6)(typescript@6.0.3)':
     dependencies:
-      '@module-federation/enhanced': 2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))
-      '@module-federation/node': 2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))
+      '@module-federation/enhanced': 2.3.3(@rspack/core@1.6.8(@swc/helpers@0.5.15))(node-fetch@2.7.0(encoding@0.1.13))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))
+      '@module-federation/node': 2.7.41(@rspack/core@1.6.8(@swc/helpers@0.5.15))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)(webpack@5.106.2(esbuild@0.28.0))
       '@nx/devkit': 22.6.5(nx@22.6.5)
       '@nx/js': 22.6.5(@babel/traverse@7.29.0)(nx@22.6.5)
-      '@nx/module-federation': 22.6.5(@babel/traverse@7.29.0)(@swc/helpers@0.5.15)(esbuild@0.28.0)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(typescript@6.0.3)
+      '@nx/module-federation': 22.6.5(@babel/traverse@7.29.0)(@swc/helpers@0.5.15)(esbuild@0.28.0)(node-fetch@2.7.0(encoding@0.1.13))(nx@22.6.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@6.0.3)
       '@nx/web': 22.6.5(@babel/traverse@7.29.0)(nx@22.6.5)
       '@phenomnomnominal/tsquery': 6.1.4(typescript@6.0.3)
       '@rspack/core': 1.6.8(@swc/helpers@0.5.15)
@@ -16245,16 +16238,16 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next@16.2.4(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.99.0):
+  next@16.2.4(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.99.0):
     dependencies:
       '@next/env': 16.2.4
       '@swc/helpers': 0.5.15
       baseline-browser-mapping: 2.10.20
       caniuse-lite: 1.0.30001788
       postcss: 8.4.31
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      styled-jsx: 5.1.6(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react@19.2.4)
+      react: 19.2.6
+      react-dom: 19.2.6(react@19.2.6)
+      styled-jsx: 5.1.6(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react@19.2.6)
     optionalDependencies:
       '@next/swc-darwin-arm64': 16.2.4
       '@next/swc-darwin-x64': 16.2.4
@@ -16925,16 +16918,10 @@ snapshots:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
 
-  react-dom@19.2.4(react@19.2.4):
+  react-dom@19.2.6(react@19.2.6):
     dependencies:
-      react: 19.2.4
+      react: 19.2.6
       scheduler: 0.27.0
-
-  react-dom@19.2.5(react@19.2.5):
-    dependencies:
-      react: 19.2.5
-      scheduler: 0.27.0
-    optional: true
 
   react-is@16.13.1: {}
 
@@ -16942,10 +16929,7 @@ snapshots:
 
   react-refresh@0.18.0: {}
 
-  react@19.2.4: {}
-
-  react@19.2.5:
-    optional: true
+  react@19.2.6: {}
 
   read-cache@1.0.0:
     dependencies:
@@ -17726,10 +17710,10 @@ snapshots:
     dependencies:
       webpack: 5.106.2(esbuild@0.28.0)
 
-  styled-jsx@5.1.6(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react@19.2.4):
+  styled-jsx@5.1.6(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react@19.2.6):
     dependencies:
       client-only: 0.0.1
-      react: 19.2.4
+      react: 19.2.6
     optionalDependencies:
       '@babel/core': 7.29.0
       babel-plugin-macros: 3.1.0
